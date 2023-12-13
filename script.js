@@ -1,5 +1,10 @@
 let output = document.getElementById("output");
-let data = fetch("https://pokeapi.co/api/v2/pokemon/ditto");
 
-output.innerHTML = "Testdata:<br>";
-output.innerHTML += data;
+getData();
+
+async function getData() {
+  let response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto/");
+  let data = await response.json();
+  output.innerHTML = "Testdata:<br>";
+  output.innerHTML += data["name"];
+}
